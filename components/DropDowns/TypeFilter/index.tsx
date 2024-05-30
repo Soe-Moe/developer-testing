@@ -1,5 +1,5 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import { MenuIcon } from "@/components/Icons/Menu";
 interface TypeDropdown {
@@ -9,9 +9,13 @@ interface TypeDropdown {
 const TypeDropdown: FC<TypeDropdown> = ({ label }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdown = useRef<HTMLDivElement>(null);
+
+  const pathname = usePathname();
+  const type_name = pathname == "/buy" && "Sale" || pathname == "/rent" && "Rent" || "";
+
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams?.toString());
-  const [type, setType] = useState(params.get("type") || "");
+  const [type, setType] = useState(params.get("type") || type_name || "");
 
   useEffect(() => {
     if (!isOpen) {
@@ -44,9 +48,8 @@ const TypeDropdown: FC<TypeDropdown> = ({ label }) => {
         </span>
       </div>
       <div
-        className={`absolute transition-all overflow-hidden top-full bg-white z-10 shadow-sm border-slate-100 flex flex-col max-h-0 gap-2 p-4 ${
-          isOpen ? "!p-2 !max-h-[20rem]" : "!p-0 !max-h-0"
-        }`}
+        className={`absolute transition-all overflow-hidden top-full bg-white z-10 shadow-sm border-slate-100 flex flex-col max-h-0 gap-2 p-4 ${isOpen ? "!p-2 !max-h-[20rem]" : "!p-0 !max-h-0"
+          }`}
       >
         <div
           onClick={() => {

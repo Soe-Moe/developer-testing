@@ -8,4 +8,4 @@ export const APP_URL = process.env.APP_URL || "http://localhost:3000";
 export const DATABASE_URL = process.env.DATABASE_URL || "mysql://root:@localhost:3306/real_estate_app";
 
 // GraphQL API URL
-export const GRAPHQL_API_URL = process.env.GRAPHQL_API_URL ||  "http://localhost:3000/api/graphql";
+export const GRAPHQL_API_URL = process.env.GRAPHQL_API_URL ||  APP_URL + "/api/graphql";
