@@ -1,9 +1,10 @@
 "use client";
-import React, { FC, useEffect, useState } from "react";
-import { gql, useQuery } from "@apollo/client";
+import React, { FC } from "react";
+import { useQuery } from "@apollo/client";
 import PropertyCard from "@/components/Cards/PropertyCard";
 import SortDropDown from "@/components/DropDowns/Sort";
 import { TProperty } from "@/types/TProperty";
+import GET_SEARCH_PROPERTIES from "@/graphql/queries/search_properties";
 
 interface SearchResultSectionProps {
   searchParams: {
@@ -30,57 +31,6 @@ interface PropertiesData {
   };
 }
 
-const GET_PROPERTIES = gql`
-  query Query(
-    $first: Int
-    $after: String
-    $search: String
-    $sort: String
-    $price_range: String
-    $area_range: String
-    $type: String
-    $property_type: String
-  ) {
-    properties(
-      first: $first
-      after: $after
-      search: $search
-      sort: $sort
-      price_range: $price_range
-      area_range: $area_range
-      type: $type
-      property_type: $property_type
-    ) {
-      totalCount
-      edges {
-        cursor
-        node {
-          id
-          name
-          title
-          description
-          bedroom
-          area
-          price
-          thumbnail
-          type
-          propertyType
-          gallery {
-            id
-            url
-          }
-        }
-      }
-      pageInfo {
-        startCursor
-        endCursor
-        hasNextPage
-        hasPreviousPage
-      }
-    }
-  }
-`;
-
 const SearchResultSection: FC<SearchResultSectionProps> = ({
   searchParams,
 }) => {
@@ -92,7 +42,8 @@ const SearchResultSection: FC<SearchResultSectionProps> = ({
     searchParams.property_type
   ) {
     const { loading, error, data, fetchMore, networkStatus } =
-      useQuery<PropertiesData>(GET_PROPERTIES, {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useQuery<PropertiesData>(GET_SEARCH_PROPERTIES, {
         variables: {
           first: 12,
           after: null,

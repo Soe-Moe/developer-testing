@@ -1,33 +1,12 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import { gql } from "@apollo/client";
 import { getClient } from "@/lib/apollo-client";
 import PropertyImageSlider from "../property-image-slider";
+import GET_PROPERTY from "@/graphql/queries/property";
 
 interface ItemSectionProps {
   propertyId: string;
 }
-
-const GET_PROPERTY = gql`
-  query Property($propertyId: String) {
-    property(id: $propertyId) {
-      id
-      name
-      title
-      description
-      bedroom
-      area
-      price
-      thumbnail
-      type
-      propertyType
-      gallery {
-        id
-        url
-      }
-    }
-  }
-`;
 
 const ItemSection: FC<ItemSectionProps> = async ({ propertyId }) => {
   const client = getClient();

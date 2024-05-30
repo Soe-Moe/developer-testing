@@ -5,6 +5,7 @@ import { gql, useQuery } from "@apollo/client";
 import PropertyCard from "@/components/Cards/PropertyCard";
 import SortDropDown from "@/components/DropDowns/Sort";
 import { TProperty } from "@/types/TProperty";
+import GET_PROPERTIES from "@/graphql/queries/properties";
 
 interface PropertiesItemsProps {
   type: "RENT" | "SALE";
@@ -28,38 +29,6 @@ interface PropertiesData {
     };
   };
 }
-
-const GET_PROPERTIES = gql`
-  query Query($first: Int, $after: String, $type: String, $sort: String) {
-    properties(first: $first, after: $after, type: $type, sort: $sort) {
-      edges {
-        cursor
-        node {
-          id
-          name
-          title
-          description
-          bedroom
-          area
-          price
-          thumbnail
-          type
-          propertyType
-          gallery {
-            id
-            url
-          }
-        }
-      }
-      pageInfo {
-        startCursor
-        endCursor
-        hasNextPage
-        hasPreviousPage
-      }
-    }
-  }
-`;
 
 const PropertiesItems: FC<PropertiesItemsProps> = ({ type, sort }) => {
   const { loading, error, data, fetchMore, networkStatus } =

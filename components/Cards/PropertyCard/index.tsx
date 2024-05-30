@@ -26,7 +26,7 @@ const PropertyCard: FC<PropertyCardProps> = ({ item }) => {
               <p className="uppercase tracking-wide text-sm font-bold text-gray-700 line-clamp-1">
                 {item.propertyType} • {item.type}
               </p>
-              <p className="text-3xl text-gray-900">
+              <p className="text-3xl text-gray-900 py-1">
                 {"$" + item.price.toLocaleString("en-us")}
               </p>
               <p className="text-gray-700 line-clamp-1">{item.title}</p>
