@@ -4,7 +4,7 @@ const GET_SEARCH_PROPERTIES = gql`
   query Query(
     $first: Int
     $after: String
-    $search: String
+    $search_keyword: String
     $sort: String
     $price_range: String
     $area_range: String
@@ -14,7 +14,7 @@ const GET_SEARCH_PROPERTIES = gql`
     properties(
       first: $first
       after: $after
-      search: $search
+      search_keyword: $search_keyword
       sort: $sort
       price_range: $price_range
       area_range: $area_range

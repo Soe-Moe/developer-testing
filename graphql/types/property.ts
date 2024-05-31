@@ -81,7 +81,7 @@ export const PropertyQuery = extendType({
             args: {
                 first: intArg(),
                 after: stringArg(),
-                search: stringArg(),
+                search_keyword: stringArg(),
                 type: stringArg(),
                 sort: stringArg(),
                 price_range: stringArg(),
@@ -89,13 +89,13 @@ export const PropertyQuery = extendType({
                 property_type: stringArg(),
             },
             async resolve(_, args, ctx: Context) {
-                const { first, after, search, type, sort, price_range, area_range, property_type } = args;
+                const { first, after, search_keyword, type, sort, price_range, area_range, property_type } = args;
 
                 // Build filters
-                const searchFilter = search ? {
+                const searchFilter = search_keyword ? {
                     OR: [
-                        { name: { contains: search } },
-                        { title: { contains: search } },
+                        { name: { contains: search_keyword } },
+                        { title: { contains: search_keyword } },
                     ],
                 } : {};
 

@@ -35,7 +35,7 @@ const SearchResultSection: FC<SearchResultSectionProps> = ({
   searchParams,
 }) => {
   if (
-    searchParams.search ||
+    searchParams.keyword ||
     searchParams.price_range ||
     searchParams.area_range ||
     searchParams.type ||
@@ -47,7 +47,7 @@ const SearchResultSection: FC<SearchResultSectionProps> = ({
         variables: {
           first: 12,
           after: null,
-          search: searchParams.search || "",
+          search_keyword: searchParams.keyword || "",
           sort: searchParams.sort || "",
           price_range: searchParams.price_range || "",
           area_range: searchParams.area_range || "",

@@ -34,7 +34,7 @@ type Property {
 }
 
 type Query {
-  properties(after: String, area_range: String, first: Int, price_range: String, property_type: String, search: String, sort: String, type: String): Response
+  properties(after: String, area_range: String, first: Int, price_range: String, property_type: String, search_keyword: String, sort: String, type: String): Response
   property(id: String): Property
 }
 

@@ -2,7 +2,7 @@
 
 
 import { APP_URL } from "@/config/app";
-import { redirect, useSearchParams } from "next/navigation";
+import { redirect } from "next/navigation";
 
 
 const getURL = () => {
@@ -16,7 +16,7 @@ const getURL = () => {
 };
 
 export const searchHandler = async (formData: FormData) => {
-  const key = formData.get("search"),
+  const key = formData.get("keyword"),
     sort = formData.get("sort"),
     price = formData.get("price_range"),
     area = formData.get("area_range"),
@@ -25,7 +25,7 @@ export const searchHandler = async (formData: FormData) => {
 
   let url = "";
   if (key) {
-    url += "?search=" + key;
+    url += "?keyword=" + key;
   }
   if (sort) {
     url += (url ? "&" : "?") + "sort=" + sort;
