@@ -10,7 +10,9 @@ Used Tech - Next.js • Prisma • Apollo GraphQL • Nexus • MySQL
 
 ## Getting Started
 
-First, run the development server (for local):
+**For local**
+
+First, run the development server:
 
 ```bash
 npm install
@@ -19,19 +21,14 @@ npm run dev
 
 ### Run on Docker
 
-**1. Build and Run**
+**Build and Run**
 
 ```sh
    docker-compose up -d
 ```
 
-**2. Prisma Database Push**
+**Fake Data Seeder**
 
-```sh
-    docker-compose run nextjs npx prisma db push
-```
-
-**3. Fake Data Seeder**
 Default 1000, Max seed value 100000
 
 ```sh

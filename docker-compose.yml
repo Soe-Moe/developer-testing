@@ -13,7 +13,6 @@ services:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./my.cnf:/etc/mysql/conf.d/my.cnf
   nextjs:
     container_name: realestate_app_container
     ports:
@@ -25,5 +24,7 @@ services:
       - DATABASE_URL=mysql://smo:password@mysql:3306/real_estate_app
     depends_on:
       - mysql
+    entrypoint: ["/usr/src/app/wait-for-mysql.sh", "mysql", "--"]
+    command: sh -c "npx prisma migrate deploy && npx prisma db seed && npm run dev"
 volumes:
   mysql-data:

@@ -1,6 +1,9 @@
 # Use the official Node.js 20-alpine image
 FROM node:20-alpine
 
+# Install bash
+RUN apk add --no-cache bash
+
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
