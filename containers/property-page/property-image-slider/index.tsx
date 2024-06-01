@@ -51,7 +51,9 @@ const PropertyImageSlider: FC<PropertySliderProps> = ({ gallery }) => {
                 className="w-full h-full object-cover"
                 alt="Product IMG"
                 title="Double Tap to Zoom In/Out"
+                loading="lazy"
               />
+              <div className="swiper-lazy-preloader"></div>
             </div>
           </SwiperSlide>
         ))}
@@ -88,7 +90,9 @@ const PropertyImageSlider: FC<PropertySliderProps> = ({ gallery }) => {
                 height={360}
                 className="w-full h-full object-cover"
                 alt="Product IMG"
+                loading="lazy"
               />
+              <div className="swiper-lazy-preloader"></div>
             </div>
           </SwiperSlide>
         ))}

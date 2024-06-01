@@ -1,24 +1,34 @@
+import { Loading } from "@/components/Icons/Loading";
 import { TProperty } from "@/types/TProperty";
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 interface PropertyCardProps {
   item: TProperty;
 }
 
 const PropertyCard: FC<PropertyCardProps> = ({ item }) => {
+  const [loading, setLoading] = useState(true);
+
   return (
     <div className="flex flex-col md:gap-8 gap-5">
       <div className="max-w-sm w-full sm:w-full lg:w-full">
-        <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+        <div className="bg-white shadow-xl rounded-lg overflow-hidden relative">
           <Link href={"/property/" + item.id}>
+            {loading && (
+              <div className="w-[394px] h-[394px] bg-gray-300 animate-pulse absolute left-0 top-0 flex items-center justify-center">
+                <Loading className="w-10 h-10" />
+              </div>
+            )}
             <Image
               src={item.thumbnail}
               width={394}
-              height={360}
+              height={394}
               className="w-full h-full object-cover"
               alt="Property IMG"
+              loading="lazy"
+              onLoad={() => setLoading(false)}
             />
           </Link>
           <Link href={"/property/" + item.id}>
