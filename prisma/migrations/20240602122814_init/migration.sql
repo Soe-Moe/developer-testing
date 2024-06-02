@@ -13,7 +13,7 @@ CREATE TABLE `Property` (
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
-    INDEX `Property_name_title_type_propertyType_price_bedroom_area_idx`(`name`, `title`, `type`, `propertyType`, `price`, `bedroom`, `area`),
+    INDEX `Property_type_propertyType_bedroom_idx`(`type`, `propertyType`, `bedroom`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

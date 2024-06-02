@@ -28,7 +28,7 @@ model Property {
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @default(now())
 
-  @@index([name, title, type, propertyType, price, bedroom, area])
+  @@index([type, propertyType, bedroom])
 }
 
 model Gallery {
