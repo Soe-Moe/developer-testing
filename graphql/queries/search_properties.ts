@@ -9,7 +9,8 @@ const GET_SEARCH_PROPERTIES = gql`
     $price_range: String
     $area_range: String
     $type: String
-    $property_type: String
+    $property_type: String,
+    $bedroom: Int
   ) {
     properties(
       first: $first
@@ -19,7 +20,8 @@ const GET_SEARCH_PROPERTIES = gql`
       price_range: $price_range
       area_range: $area_range
       type: $type
-      property_type: $property_type
+      property_type: $property_type,
+      bedroom: $bedroom
     ) {
       totalCount
       edges {

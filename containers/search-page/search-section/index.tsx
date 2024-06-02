@@ -2,9 +2,9 @@ import MobileSearchInput from "@/components/Forms/Inputs/MobileSearch/Index";
 import SearchInput from "@/components/Forms/Inputs/Search";
 import React, { FC } from "react";
 
-interface SearchSectionProps {}
+interface SearchSectionProps { }
 
-const SearchSection: FC<SearchSectionProps> = ({}) => {
+const SearchSection: FC<SearchSectionProps> = ({ }) => {
   return (
     <section className="w-full flex justify-center">
       <div className="flex flex-col py-20 xs:py-10 items-center  gap-8 md:gap-24 w-full max-w-screen-xl mx-5 md:mx-20">
@@ -15,7 +15,7 @@ const SearchSection: FC<SearchSectionProps> = ({}) => {
             eligendi blanditiis laboriosam
           </p>
         </div>
-        <div className="w-full">
+        <div className="w-full rounded-lg shadow-[0_4px_120px_0px_rgba(175,173,181,0.3)]">
           <SearchInput />
           <MobileSearchInput></MobileSearchInput>
         </div>

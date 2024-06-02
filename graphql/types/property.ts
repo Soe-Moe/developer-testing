@@ -87,9 +87,10 @@ export const PropertyQuery = extendType({
                 price_range: stringArg(),
                 area_range: stringArg(),
                 property_type: stringArg(),
+                bedroom: intArg(),
             },
             async resolve(_, args, ctx: Context) {
-                const { first, after, search_keyword, type, sort, price_range, area_range, property_type } = args;
+                const { first, after, search_keyword, type, sort, price_range, area_range, property_type, bedroom } = args;
 
                 // Build filters
                 const searchFilter = search_keyword ? {
@@ -101,6 +102,10 @@ export const PropertyQuery = extendType({
 
                 const typeFilter = type ? {
                     type: { equals: type.toUpperCase() },
+                } : {};
+
+                const bedroomFilter = bedroom ? {
+                    bedroom: { equals: bedroom },
                 } : {};
 
                 const propertyTypeFilter = property_type ? {
@@ -129,6 +134,7 @@ export const PropertyQuery = extendType({
                     ...propertyTypeFilter,
                     ...priceFilter,
                     ...areaFilter,
+                    ...bedroomFilter,
                 };
 
                 // Determine the sorting order

@@ -39,7 +39,8 @@ const SearchResultSection: FC<SearchResultSectionProps> = ({
     searchParams.price_range ||
     searchParams.area_range ||
     searchParams.type ||
-    searchParams.property_type
+    searchParams.property_type ||
+    searchParams.bedroom
   ) {
     const { loading, error, data, fetchMore, networkStatus } =
       // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -53,6 +54,7 @@ const SearchResultSection: FC<SearchResultSectionProps> = ({
           area_range: searchParams.area_range || "",
           type: searchParams.type || "",
           property_type: searchParams.property_type || "",
+          bedroom: searchParams.bedroom ? Number(searchParams.bedroom) : 0,
         },
         notifyOnNetworkStatusChange: true,
       });

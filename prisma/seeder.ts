@@ -46,7 +46,7 @@ async function main() {
                 title: faker.lorem.words({min: 4, max: 5}),
                 description: faker.lorem.lines({min: 5, max: 10}),
                 price: faker.number.int({ min: 1000, max: 100000 }),
-                bedroom: faker.number.int({ min: 1, max: 4 }),
+                bedroom: faker.number.int({ min: 1, max: 5 }),
                 area: faker.number.int({ min: 50, max: 300 }),
                 type: faker.helpers.enumValue(Type),
                 propertyType: propertyType,

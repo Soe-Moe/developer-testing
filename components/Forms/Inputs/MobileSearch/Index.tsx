@@ -7,10 +7,11 @@ import SearchInputField from "../../ClientInputs/SearchInput";
 import AreaRangeDropdown from "@/components/DropDowns/AreaRange";
 import TypeDropdown from "@/components/DropDowns/TypeFilter";
 import PropertyTypeDropdown from "@/components/DropDowns/PropertyTypeFilter";
+import Bedroom from "@/components/DropDowns/Bedroom";
 
-interface MobileSearchInputProps {}
+interface MobileSearchInputProps { }
 
-const MobileSearchInput: FC<MobileSearchInputProps> = ({}) => {
+const MobileSearchInput: FC<MobileSearchInputProps> = ({ }) => {
   return (
     <form className="relative hidden xs:block" action={searchHandler}>
       <div
@@ -27,6 +28,8 @@ const MobileSearchInput: FC<MobileSearchInputProps> = ({}) => {
         <AreaRangeDropdown label="Filter by Area Range" />
         <hr />
         <PropertyTypeDropdown label="Filter by Property Type" />
+        <hr />
+        <Bedroom />
         <hr />
         <TypeDropdown label="Filter by Type" />
         <hr />

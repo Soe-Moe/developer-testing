@@ -21,7 +21,8 @@ export const searchHandler = async (formData: FormData) => {
     price = formData.get("price_range"),
     area = formData.get("area_range"),
     type = formData.get("type"),
-    property_type = formData.get("property_type");
+    property_type = formData.get("property_type"),
+    bedroom = formData.get("bedroom");
 
   let url = "";
   if (key) {
@@ -41,6 +42,10 @@ export const searchHandler = async (formData: FormData) => {
   }
   if (property_type) {
     url += (url ? "&" : "?") + "property_type=" + property_type;
+  }
+
+  if (bedroom) {
+    url += (url ? "&" : "?") + "bedroom=" + bedroom;
   }
 
   return redirect(getURL() + "search" + url);

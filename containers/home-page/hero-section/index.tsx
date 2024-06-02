@@ -4,9 +4,9 @@ import { SkectchStar, SketchArrow } from "@/components/Icons/Sketchs";
 import Image from "next/image";
 import React, { FC } from "react";
 
-interface HeroSectionProps {}
+interface HeroSectionProps { }
 
-const HeroSection: FC<HeroSectionProps> = ({}) => {
+const HeroSection: FC<HeroSectionProps> = ({ }) => {
   return (
     <section className="w-full flex justify-center">
       <div className=" flex flex-col py-10 md:py-28 items-center  gap-8 md:gap-24 w-full max-w-screen-xl mx-5 md:mx-20">
@@ -16,7 +16,7 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
               Search For Your Next Property To Buy Or Rent
             </h1>
             <SkectchStar className="w-6 h-6 md:w-[40px] md:h-[40px] lg:h-[51px] lg:w-[51px]" />
-            <SketchArrow className="absolute lg:-left-40 -left-10 -bottom-10 lg:-bottom-60 h-[83px]  lg:w-[249px] w-[83px]  lg:h-[249px]" />
+            <SketchArrow className="absolute lg:-left-[13rem] -left-10 -bottom-10 lg:-bottom-60 h-[83px]  lg:w-[249px] w-[83px]  lg:h-[249px]" />
           </div>
           <div>
             <p className="text-textColor text-sm md:text-lg">
@@ -28,7 +28,7 @@ const HeroSection: FC<HeroSectionProps> = ({}) => {
           </div>
         </div>
         <div className="w-full relative flex justify-center flex-col items-center gap-8">
-          <div className="md:absolute top-[-2.5rem] w-full h-[48px]  md:max-w-[810px] z-10">
+          <div className="md:absolute top-[-2.5rem] w-full h-[48px]  md:max-w-[900px] z-10">
             <SearchInput />
             <MobileSearchInput />
           </div>

@@ -2,16 +2,16 @@
 import { Sort } from "@/components/Icons/Sort";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { FC, useCallback, useEffect, useRef, useState } from "react";
-interface SortDropDownProps {}
+interface SortDropDownProps { }
 
-const SortDropDown: FC<SortDropDownProps> = ({}) => {
+const SortDropDown: FC<SortDropDownProps> = ({ }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [sort, setSort] = useState("");
   const dropdown = useRef<HTMLDivElement>(null);
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams?.toString());
+  const [sort, setSort] = useState(params.get('sort') || "");
 
   useEffect(() => {
     if (!isOpen) return;
@@ -36,9 +36,8 @@ const SortDropDown: FC<SortDropDownProps> = ({}) => {
         <span className="text-black text-lg">Sort By</span>
       </div>
       <div
-        className={`absolute transition-all overflow-hidden top-full bg-white flex flex-col w-[170px] shadow-md max-h-0 gap-2 ${
-          isOpen ? "!p-2 !max-h-[20rem]" : "!p-0 !max-h-0"
-        }`}
+        className={`absolute transition-all overflow-hidden top-full bg-white flex flex-col z-20 w-[170px] shadow-md max-h-0 gap-2 ${isOpen ? "!p-2 !max-h-[20rem]" : "!p-0 !max-h-0"
+          }`}
       >
         <h1
           className={`text-sm text-black cursor-pointer w-full py-2 px-2 ${sort == "pricelow" ? "bg-slate-100" : ""}`}
