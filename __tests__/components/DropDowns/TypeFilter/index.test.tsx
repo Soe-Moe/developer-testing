@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import TypeDropdown from "../../components/DropDowns/TypeFilter";
+import TypeDropdown from "@/components/DropDowns/TypeFilter";
 import "@testing-library/jest-dom";
 
 describe("TypeDropdown component", () => {

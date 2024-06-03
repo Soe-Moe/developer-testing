@@ -51,9 +51,8 @@ const AreaRangeDropdown: FC<AreaRangeDropdown> = ({ label }) => {
         </span>
       </div>
       <div
-        className={`absolute transition-all overflow-hidden top-full bg-white shadow-sm z-10 border-slate-100 flex flex-col max-h-0 gap-2 p-4 ${
-          isOpen ? "!p-2 !max-h-[20rem]" : "!p-0 !max-h-0"
-        }`}
+        className={`absolute transition-all overflow-hidden top-full bg-white shadow-sm z-10 border-slate-100 flex flex-col max-h-0 gap-2 p-4 ${isOpen ? "!p-2 !max-h-[20rem]" : "!p-0 !max-h-0"
+          }`}
       >
         <div className="text-sm text-black cursor-pointer w-[140px] border p-2 border-solid border-slate-200">
           <NumberInputField
@@ -107,6 +106,7 @@ const AreaRangeDropdown: FC<AreaRangeDropdown> = ({ label }) => {
               setIsOpen(false);
             }}
             className={`py-2 w-full text-xs ${disableBtn ? "bg-slate-300" : "bg-primaryColor"}`}
+            disabled={disableBtn}
           >
             Set
           </button>

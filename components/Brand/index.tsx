@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { Logo } from "../Icons/Logo";
 
-interface BrandProps {}
+interface BrandProps { }
 
-const Brand: FC<BrandProps> = ({}) => {
+const Brand: FC<BrandProps> = () => {
   return (
     <div className="flex gap-3 items-center w-50">
       <Logo />

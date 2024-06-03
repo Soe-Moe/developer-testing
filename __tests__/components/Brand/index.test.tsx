@@ -3,7 +3,7 @@ import Brand from "@/components/Brand";
 import "@testing-library/jest-dom";
 
 // Mock the Logo component
-jest.mock("../Components/Icons/Logo", () => ({
+jest.mock("../../../components/Icons/Logo", () => ({
   Logo: () => <div data-testid="logo" />,
 }));
 

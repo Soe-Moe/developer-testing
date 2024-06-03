@@ -11,7 +11,7 @@ import Bedroom from "@/components/DropDowns/Bedroom";
 
 interface MobileSearchInputProps { }
 
-const MobileSearchInput: FC<MobileSearchInputProps> = ({ }) => {
+const MobileSearchInput: FC<MobileSearchInputProps> = () => {
   return (
     <form className="relative hidden xs:block" action={searchHandler}>
       <div

@@ -1,4 +1,4 @@
-import MobileSearchInput from "@/components/Forms/Inputs/MobileSearch/Index";
+import MobileSearchInput from "@/components/Forms/Inputs/MobileSearch";
 import SearchInput from "@/components/Forms/Inputs/Search";
 import React, { FC } from "react";
 

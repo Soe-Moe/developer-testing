@@ -11,7 +11,7 @@ import Bedroom from "@/components/DropDowns/Bedroom";
 
 interface SearchInputProps { }
 
-const SearchInput: FC<SearchInputProps> = ({ }) => {
+const SearchInput: FC<SearchInputProps> = () => {
   return (
     <form className="relative xs:hidden" action={searchHandler}>
       <div

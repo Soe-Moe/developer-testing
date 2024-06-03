@@ -4,15 +4,14 @@ import SelectField from "@/components/Forms/ClientInputs/SelectField";
 import { BedroomIcon } from "@/components/Icons/BedroomIcon";
 import { useSearchParams } from "next/navigation";
 interface BedroomDropdown {
-  label?: string;
 }
 
-const Bedroom: FC<BedroomDropdown> = ({ label }) => {
+const Bedroom: FC<BedroomDropdown> = ({ }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdown = useRef<HTMLDivElement>(null);
   const searchQuery = useSearchParams();
 
-  const [bedroom, setBedroom] = useState(searchQuery?.get("bedroom") || "1");
+  const [bedroom, setBedroom] = useState(searchQuery?.get("bedroom") || "");
 
   useEffect(() => {
     if (!isOpen) {

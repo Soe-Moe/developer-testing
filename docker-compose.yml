@@ -25,6 +25,6 @@ services:
     depends_on:
       - mysql
     entrypoint: ["/usr/src/app/wait-for-mysql.sh", "mysql", "--"]
-    command: sh -c "npx prisma migrate deploy && npx prisma db seed && npm run dev"
+    command: sh -c "npx prisma migrate deploy && npx prisma db seed && npm run start"
 volumes:
   mysql-data:

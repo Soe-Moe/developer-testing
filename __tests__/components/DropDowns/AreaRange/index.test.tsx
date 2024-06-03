@@ -29,11 +29,11 @@ describe("AreaRangeDropdown", () => {
     const minAreaInput = screen.getByPlaceholderText("Min Area (sqft)");
     const maxAreaInput = screen.getByPlaceholderText("Max Area (sqft)");
 
-    fireEvent.change(minAreaInput, { target: { value: "500" } });
-    fireEvent.change(maxAreaInput, { target: { value: "1000" } });
+    fireEvent.change(minAreaInput, { target: { value: "500" } as HTMLInputElement });
+    fireEvent.change(maxAreaInput, { target: { value: "1000" } as HTMLInputElement });
 
-    expect(minAreaInput.value).toBe("500");
-    expect(maxAreaInput.value).toBe("1000");
+    expect((minAreaInput as HTMLInputElement).value).toBe("500");
+    expect((maxAreaInput as HTMLInputElement).value).toBe("1000");
   });
 
   it("enables and disables the set button based on input values", () => {
@@ -67,8 +67,8 @@ describe("AreaRangeDropdown", () => {
     const maxAreaInput = screen.getByPlaceholderText("Max Area (sqft)");
     const setButton = screen.getByText("Set");
 
-    fireEvent.change(minAreaInput, { target: { value: "500" } });
-    fireEvent.change(maxAreaInput, { target: { value: "1000" } });
+    fireEvent.change(minAreaInput, { target: { value: "500" } as HTMLInputElement });
+    fireEvent.change(maxAreaInput, { target: { value: "1000" } as HTMLInputElement });
     fireEvent.click(setButton);
 
     expect(screen.getByText("500-1000")).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe("AreaRangeDropdown", () => {
     fireEvent.click(clearButton);
 
     expect(screen.getByText("Area")).toBeInTheDocument();
-    expect(minAreaInput.value).toBe("");
-    expect(maxAreaInput.value).toBe("");
+    expect((minAreaInput as HTMLInputElement).value).toBe("");
+    expect((maxAreaInput as HTMLInputElement).value).toBe("");
   });
 });
